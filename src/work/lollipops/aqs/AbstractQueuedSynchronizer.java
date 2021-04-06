@@ -260,7 +260,7 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
         static final int PROPAGATE = -3;
 
         /**
-         * Status field, taking on only the values:
+         * 状态字段，只有下面这些值：
          * SIGNAL:     The successor of this node is (or will soon be)
          * blocked (via park), so the current node must
          * unpark its successor when it releases or
@@ -268,9 +268,11 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
          * first indicate they need a signal,
          * then retry the atomic acquire, and then,
          * on failure, block.
-         * CANCELLED:  This node is cancelled due to timeout or interrupt.
-         * Nodes never leave this state. In particular,
-         * a thread with cancelled node never again blocks.
+         * CANCELLED:
+         * 取消状态，比如现在等待锁时间超时或者被中断interrupt
+         *
+         *
+         *
          * CONDITION:  This node is currently on a condition queue.
          * It will not be used as a sync queue node
          * until transferred, at which time the status
